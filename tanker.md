@@ -12,12 +12,12 @@ I motsetning til Get har Post ingen lengde restriksjoner, og det som blir skreve
 
 ##--HttpPut--
 Put er en motde som sender en forespørsel til serveren om å modifesere en ressurs, og vi bruker en nøkkel (gjerne ID) for å spesifisere hvilken ressurs vi vil endre på. Hvilken ressurs vi vil endre på sendes i from av en URL adresse (samme som i Get, men må også inkludere nøkkelen i URL adressen), og hva vi vil endre på spesifiserer vi i body ved hjelp av feltets navn og endringen vi vil gjøre.
-Hvis ressursen ikke finnes vil serveren lage den, du vil få en melding om du oppdaterte en ressurs eller lagde en ny en.
+Hvis ressursen ikke finnes vil serveren lage den, du vil få en melding om du oppdaterte en ressurs(200(OK)) eller lagde en ny en(201 (Created)).
 
 ##--HttpDelete--
 Delete er en metode som sender en forespørsel til serveren om å slette en ressurs, og vil som i Put bruke en nøkkel i URL feltet for å finne ressursen som skal slettes. Ut i fra hvordan serveren er satt opp vil du få en melding med 200(OK) hvis serveren har slettet ressursen, 202(Accepted) hvis den har mottat forespørselen men ikke godtatt den enda, eller 204(No Content) hvis ressursen er slettet men ikke gir deg noen detaljer.
 
-(kanskje til senere)
+(kanskje til senere, om jeg får tid)
 
 --HttpPatch--
 
@@ -28,3 +28,8 @@ Delete er en metode som sender en forespørsel til serveren om å slette en ress
 --HttpOptions--
 
 --HttpConnect--
+
+# Tanker om Server-Client forholdet
+
+Når vi snakker om Client så mener vi stort sett brukere (enten det er en person eller en organisasjon) av en tjeneste, men i dataverden referer Client til datamaskiner, og datamaskiner er verten som er i stand til og ta i mot og bruke informasjon og tjenester fra tjenesteleverandøren(i.e. en Server).
+I forholdet mellom partene kan vi bruke en analogi med en restaurant. I denne analogien så vil brukeren være kunden, som sender en bestilling(forespørsel) til kjøkkenet gjennom servitøren(datamaskinen) i henhold til en meny(en samling av funksjoner/metoder med spesifike utfall). Når servitøren leverer bestillingen(forespørselen med funksjon/metode) til kjøkkenet(serveren) sjekke om de kan gjennomføre orderen(det som blir bedt om) og sende retten(svaret, eller en feilmelding) tilbake til kunden(brukeren) gjennom servitøren(datamaskinen).
